@@ -19,34 +19,40 @@ exports.createExpense = (req, res, next) => {
     });
 }
 
-// exports.getRoles = (req, res, next) => {
-//     Roles.get({}, (err, roles) => {
-//         if (err) return res.json({ error: err });
-//         res.json({ Roles: roles });
-//     });
-// }
+exports.getExpenses = (req, res, next) => {
+    Expenses.get({}, (err, expenses) => {
+        if (err) return res.json({ error: err });
+        res.json({ Expenses: expenses });
+    });
+}
 
-// exports.getRole = (req, res, next) => {
-//     Roles.get({ _id: req.params.id }, (err, role) => {
-//         if (err) return res.json({ error: err });
-//         res.json({ Role: role });
-//     });
-// }
+exports.getExpense = (req, res, next) => {
+    Expenses.get({ _id: req.params.id }, (err, expense) => {
+        if (err) return res.json({ error: err });
+        res.json({ Expense: expense });
+    });
+}
 
-// exports.updateRole = (req, res, next) => {
-//     const role = {
-//         name: req.body.name,
-//         description: req.body.description
-//     }
-//     Roles.update({ _id: req.params.id }, role, (err, role) => {
-//         if (err) return res.json({ error: err });
-//         res.json({ message: 'Role updated successfully' });
-//     });
-// }
+exports.updateExpense = (req, res, next) => {
+    const expense = {
+        name: req.body.name,
+        description: req.body.description
+    }
+    Expenses.update({ _id: req.params.id }, expense, (err, expenseUpdated) => {
+        if (err) return res.json({ error: err });
+        res.json({
+            message: 'Expense updated successfully',
+            expenseUpdated: expense
+        });
+    });
+}
 
-// exports.deleteRole = (req, res, next) => {
-//     Roles.delete({ _id: req.params.id }, (err, role) => {
-//         if (err) return res.json({ error: err });
-//         res.json({ message: 'Role deleted successfully' });
-//     })
-// }
+exports.deleteExpense = (req, res, next) => {
+    Expenses.delete({ _id: req.params.id }, (err, expense) => {
+        if (err) return res.json({ error: err });
+        res.json({
+            message: 'Role deleted successfully',
+            delectedExpense: expense
+        });
+    })
+}

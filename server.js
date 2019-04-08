@@ -6,6 +6,7 @@ const properties = require('./config/properties');
 const usersRoutes = require('./users/users.routes');
 const rolesRoutes = require('./roles/roles.routes');
 const expensesRoutes = require('./expenses/expenses.routes');
+const distributorRoutes = require('./distributors/distributors.routes');
 const db = require('./config/database');
 
 //Init DB
@@ -28,5 +29,6 @@ app.use('/api', router);
 usersRoutes(router);
 rolesRoutes(router);
 expensesRoutes(router);
+distributorRoutes(router);
 
 app.listen(properties.PORT, () => console.log(`Server is running on ${ properties.PORT }`));
