@@ -7,8 +7,9 @@ const usersRoutes = require('./users/users.routes');
 const rolesRoutes = require('./roles/roles.routes');
 const expensesRoutes = require('./expenses/expenses.routes');
 const distributorRoutes = require('./distributors/distributors.routes');
+const doctypesRoutes = require('./doctypes/doctypes.routes');
+const registerexpenseRoutes = require('./registerexpenses/registerexpenses.routes');
 const db = require('./config/database');
-
 //Init DB
 db();
 //cors
@@ -21,7 +22,8 @@ const bodyParserURLEncoded = bodyParser.urlencoded({ extended: true });
 const app = express();
 app.use(bodyParserJSON);
 app.use(bodyParserURLEncoded);
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:4200' }));
+// app.use(cors());
 //Init Routes
 const router = express.Router();
 app.use('/api', router);
@@ -30,5 +32,7 @@ usersRoutes(router);
 rolesRoutes(router);
 expensesRoutes(router);
 distributorRoutes(router);
+doctypesRoutes(router);
+registerexpenseRoutes(router);
 
 app.listen(properties.PORT, () => console.log(`Server is running on ${ properties.PORT }`));

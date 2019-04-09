@@ -5,15 +5,18 @@ const userSchema = new Schema({
     username: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        trim: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     role: {
-        type: String,
-        default: 'Cajero'
+        type: Schema.ObjectId,
+        ref: 'Roles',
+        default: '5caa8f8300b07e018c266866'
     },
     status: {
         type: Number,
