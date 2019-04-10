@@ -1,0 +1,107 @@
+{
+  "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    // TypeScript Specific
+    "member-access": true, // Requires explicit visibility declarations for class members.
+    "no-any": true, // Diallows usages of any as a type declaration.
+    // Functionality
+    "label-position": true, // Only allows labels in sensible locations.
+    "no-bitwise": true, // Disallows bitwise operators.
+    "no-eval": true, // Disallows eval function invocations.
+    "no-null-keyword": true, // Disallows use of the null keyword literal.
+    "no-unsafe-finally": true, // Disallows control flow statements, such as return, continue, break and throws in finally blocks.
+    "no-var-keyword": true, // Disallows usage of the var keyword.
+    "radix": true, // Requires the radix parameter to be specified when calling parseInt.
+    "triple-equals": true, // Requires === and !== in place of == and !=.
+    "use-isnan": true, // Enforces use of the isNaN() function to check for NaN references instead of a comparison to the NaN constant.
+    // Style
+    "class-name": true, // Enforces PascalCased class and interface names. 
+    "interface-name": [
+      true,
+      "never-prefix"
+    ], // Requires interface names to begin with a capital ‘I’
+    "no-angle-bracket-type-assertion": true, // Requires the use of as Type for type assertions instead of <Type>.
+    "one-variable-per-declaration": true, // Disallows multiple variable definitions in the same declaration statement.
+    "quotemark": [
+      true,
+      "double",
+      "avoid-escape"
+    ], // Requires double quotes for string literals.
+    "semicolon": [
+      true,
+      "always"
+    ], // Enforces consistent semicolon usage at the end of every statement.
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ] // Checks variable names for various errors. Disallows the use of certain TypeScript keywords (any, Number, number, String, string, Boolean, boolean, undefined) as variable or parameter. Allows only camelCased or UPPER_CASED variable names. Allows underscores at the beginning (only has an effect if “check-format” specified).
+    },
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],
+    "interface-name": false,
+    "max-classes-per-file": false,
+    "max-line-length": [
+      false,
+      140
+    ],
+    "member-access": false,
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-consecutive-blank-lines": false,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-empty": false,
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
+    "no-switch-case-fall-through": true,
+    "no-use-before-declare": true,
+    "no-var-requires": false,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [
+      false,
+      "single"
+    ],
+    "trailing-comma": false,
+    "no-output-on-prefix": true,
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true
+  }
+}
